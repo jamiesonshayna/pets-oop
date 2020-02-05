@@ -13,7 +13,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require_once("vendor/autoload.php");
-require_once("classes/pets.php");
 
 // IF YOU START A SESSION DO IT AFTER THE AUTOLOAD
 
@@ -23,20 +22,18 @@ $f3 = Base::instance(); // invoke static
 // define a default route
 // when the user navigates to the route directory of the project
 // this is what they should see
-$f3->route('GET /', function() {
+$f3->route('GET /', function($f3) {
 
-    // call the eat method
-    $pet1 = new Pet();
-    $pet1->eat();
+    // add our pets to the fat free hive
+    $f3->set('pet1', new Pet("fish", "rainbow"));
+    $f3->set('pet2', new Pet());
 
-    // call the talk method
-    $pet1->talk();
 
-//    // create a new view object by instantiating the fat-free templating class
-//    $view = new Template();
-//
-//    // on the object template we render the home page through this route
-//    echo $view->render('views/home.html');
+    // create a new view object by instantiating the fat-free templating class
+    $view = new Template();
+
+    // on the object template we render the home page through this route
+    echo $view->render('views/my-pets.php');
 });
 
 // fun Fat-Free

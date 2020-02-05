@@ -8,6 +8,8 @@
     <title>Pets OOP</title>
 </head>
 <body>
-
+    <h1>My Pets</h1>
+    {{ @pet1->eat() }}
+    {{ @pet2->talk() }}
 </body>
 </html>
