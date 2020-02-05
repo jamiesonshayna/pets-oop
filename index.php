@@ -26,14 +26,18 @@ $f3->route('GET /', function($f3) {
 
     // add our pets to the fat free hive
     $f3->set('pet1', new Pet("fish", "rainbow"));
-    $f3->set('pet2', new Pet());
 
+    $pet2 = new Pet();
+    $pet2->setName("Hardy");
+    $f3->set('pet2', $pet2);
+
+    $pet3 = new Dog("Lexi");
+    $f3->set('pet3', $pet3);
 
     // create a new view object by instantiating the fat-free templating class
     $view = new Template();
-
     // on the object template we render the home page through this route
-    echo $view->render('views/my-pets.php');
+    echo $view->render('views/my-pets.html');
 });
 
 // fun Fat-Free

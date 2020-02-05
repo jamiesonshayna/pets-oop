@@ -5,6 +5,8 @@ class Pet
     private $_name;
     private $_color;
 
+    // protected = parent and child class access
+
     // YOU CAN ONLY HAVE ONE CONSTRUCTOR
 
     // non-default constructor
@@ -15,6 +17,29 @@ class Pet
         $this->_color = $color;
     }
 
+    // accessors
+    function getName()
+    {
+        return $this->_name;
+    }
+
+    function getColor()
+    {
+        return $this->_color;
+    }
+
+    // mutators
+    function setName($name)
+    {
+        $this->_name = $name;
+    }
+
+    function setColor($color)
+    {
+        $this->_color = $color;
+    }
+
+    // class methods
     function eat()
     {
         echo ucfirst($this->_color) . " " . $this->_name . " is eating!<br>";
@@ -22,6 +47,6 @@ class Pet
 
     function talk()
     {
-        echo "Pet is talking<br>";
+        echo $this->_name . " is talking!<br>";
     }
 }
